@@ -41,8 +41,13 @@ public class Principal {
         System.out.println("Atente-se à formação, o CEP NÃO pode conter mais que oito digitos ou caracteres além de números!");
         var buscaCEP = leitura.nextLine();
 
-        Info endereco = consultarCEP.Consultar(buscaCEP);
-        System.out.println(endereco);
+        try {
+            Info endereco = consultarCEP.Consultar(buscaCEP);
+            System.out.println(endereco);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Encerrando a aplicação.");
+        }
 
 
     }

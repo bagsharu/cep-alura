@@ -18,15 +18,14 @@ public class ConsultaCEP {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(busca))
                 .build();
-        HttpResponse<String> response = null;
         try {
-            response = client
+            HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
+            return new Gson().fromJson(response.body(), Info.class);
+
         } catch (Exception e) {
-            System.out.println("CEP Inválido!");
+            throw new RuntimeException("CEP inválido! Não foi possível realizar a operação.");
         }
 
-
-        return new Gson().fromJson(response.body(), Info.class);
     }
 }
