@@ -35,26 +35,5 @@ public class Principal {
         }
 
 
-        /*
-        // Recebe a URL correspondente do CEP.
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://viacep.com.br/ws/01001000/json/"))
-                .build();
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
-
-        // Verificação da requisição json.
-        System.out.println(response.body());
-        */
-
-        /*
-        // Implementação básica da consulta
-
-        Info endereco = consultarCEP.Consultar("01001000");
-        System.out.println(endereco);
-
-        */
-
     }
 }
