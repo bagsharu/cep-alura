@@ -43,8 +43,11 @@ public class Principal {
 
         try {
             Info endereco = consultarCEP.Consultar(buscaCEP);
-            System.out.println(endereco);
-        } catch (RuntimeException e) {
+            // System.out.println(endereco);
+            System.out.println("As informações foram registradas em " + endereco.cep() + ".json !");
+            GeradorArquivo gerarArquivo = new GeradorArquivo();
+            gerarArquivo.escritaArquivo(endereco);
+        } catch (RuntimeException | IOException e) {
             System.out.println(e.getMessage());
             System.out.println("Encerrando a aplicação.");
         }
