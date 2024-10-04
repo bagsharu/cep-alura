@@ -9,11 +9,17 @@ import java.io.IOException;
 
 public class GeradorArquivo {
 
+    // Método para salvar um arquivo com as informações do CEP
+
+
     public void escritaArquivo (Info endereco) throws IOException {
+
+        // Instacia objeto "gson" e formata de forma legível.
         Gson gson = new GsonBuilder()
                         .setPrettyPrinting()
                         .create();
 
+        // Instacia objeto "escrita" que cria o arquivo nomeado a partir do CEP informado.
         FileWriter escrita = new FileWriter(endereco.cep() + ".json");
         escrita.write(gson.toJson(endereco));
         escrita.close();
