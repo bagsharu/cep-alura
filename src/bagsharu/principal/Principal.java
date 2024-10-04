@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args){
@@ -26,9 +27,23 @@ public class Principal {
         System.out.println(response.body());
         */
 
-        ConsultaCEP consultarCEP = new ConsultaCEP();
+        /*
+        // Implementação básica da consulta
 
         Info endereco = consultarCEP.Consultar("01001000");
         System.out.println(endereco);
+
+        */
+
+        ConsultaCEP consultarCEP = new ConsultaCEP();
+        Scanner leitura = new Scanner(System.in);
+        System.out.println("Informe o CEP a ser recebido: ");
+        System.out.println("Atente-se à formação, o CEP NÃO pode conter mais que oito digitos ou caracteres além de números!");
+        var buscaCEP = leitura.nextLine();
+
+        Info endereco = consultarCEP.Consultar(buscaCEP);
+        System.out.println(endereco);
+
+
     }
 }
